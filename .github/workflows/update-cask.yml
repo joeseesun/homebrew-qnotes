@@ -1,0 +1,42 @@
+name: Update Cask
+
+on:
+  repository_dispatch:
+    types: [new-release]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to update to'
+        required: true
+      sha256:
+        description: 'SHA256 hash of the DMG file'
+        required: true
+
+jobs:
+  update-cask:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Update Cask
+        run: |
+          VERSION="${{ github.event.inputs.version || github.event.client_payload.version }}"
+          SHA256="${{ github.event.inputs.sha256 || github.event.client_payload.sha256 }}"
+          
+          # Update version and SHA256 in Cask file
+          sed -i "s/version \".*\"/version \"${VERSION}\"/" Casks/qnotes.rb
+          sed -i "s/sha256 \".*\"/sha256 \"${SHA256}\"/" Casks/qnotes.rb
+          
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update QNotes to v${{ github.event.inputs.version || github.event.client_payload.version }}"
+          title: "Update QNotes to v${{ github.event.inputs.version || github.event.client_payload.version }}"
+          body: |
+            Automated update of QNotes cask to version ${{ github.event.inputs.version || github.event.client_payload.version }}
+            
+            - Version: ${{ github.event.inputs.version || github.event.client_payload.version }}
+            - SHA256: ${{ github.event.inputs.sha256 || github.event.client_payload.sha256 }}
+          branch: update-v${{ github.event.inputs.version || github.event.client_payload.version }}
