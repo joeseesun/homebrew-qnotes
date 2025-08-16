@@ -2,10 +2,10 @@ cask "qnotes" do
   version "1.1.49"
   sha256 "2b5f496a1b38b978af48862cef129efba9f4d6a1149cec0ffdfae8f319f7120d"
 
-  url "https://github.com/joeseesun/qnotes/releases/download/v#{version}/QNotes-#{version}-arm64.dmg"
+  url "https://github.com/joeseesun/qnotes-app/releases/download/v#{version}/QNotes-#{version}-arm64.dmg"
   name "QNotes"
   desc "双模式智能内容收集整理工具 - AI驱动的笔记和知识管理应用"
-  homepage "https://github.com/joeseesun/qnotes"
+  homepage "https://github.com/joeseesun/qnotes-app"
 
   livecheck do
     url :url
