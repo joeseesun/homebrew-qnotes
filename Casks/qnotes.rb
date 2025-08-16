@@ -1,8 +1,8 @@
 cask "qnotes" do
   version "1.1.50"
-  sha256 "117acd26eb4e4ac59656912ea8a6fac56a3d16c025a85f2f8660b699b4075473"
+  sha256 "9b6be395c23f4c4507b78cfb41925e6392c7f890fccd6d74cedb0e80e010ba44"
 
-  url "https://github.com/joeseesun/qnotes-app/releases/download/v#{version}/QNotes-1.1.49-arm64.dmg"
+  url "https://github.com/joeseesun/qnotes-app/releases/download/v#{version}/QNotes-#{version}-arm64.dmg"
   name "QNotes"
   desc "双模式智能内容收集整理工具 - AI驱动的笔记和知识管理应用"
   homepage "https://github.com/joeseesun/qnotes-app"
