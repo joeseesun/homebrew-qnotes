@@ -1,6 +1,6 @@
 cask "qnotes" do
-  version "1.1.51"
-  sha256 "565abf2cbaaa421a5db7d778e1e3b85fbad5e96eb7516e91d1a8a9e36ee466fd"
+  version "1.1.52"
+  sha256 "9879149c79611029c26021a1a38fcf1fc3d5ac9e3556b7b51c6ae38f88ffd0d3"
 
   url "https://github.com/joeseesun/qnotes-app/releases/download/v#{version}/QNotes-#{version}-arm64.dmg"
   name "QNotes"
@@ -16,26 +16,21 @@ cask "qnotes" do
 
   app "QNotes.app"
 
-  # 首次运行说明
+  # 安装成功说明
   caveats do
     <<~EOS
-      QNotes 已成功安装！
+      🎉 QNotes v#{version} 已成功安装！
 
-      ⚠️  首次运行重要提醒：
-      由于此版本包含完整PDF导出功能，macOS会显示安全警告。
+      ✨ 这是完整公证版本 (Notarized Developer ID)
+      ✅ 可直接双击运行，无任何安全警告
+      ✅ 包含完整PDF导出功能
+      ✅ 符合所有macOS安全标准
 
-      首次启动请按以下步骤操作：
-      1. 在Finder中找到 QNotes.app
-      2. 右键点击 → 选择"打开"
-      3. 在弹出的安全警告中选择"打开"
-
-      或者：
-      1. 系统偏好设置 → 安全性与隐私
-      2. 点击"仍要打开"
-
-      ✅ 一次设置后，QNotes将正常启动，无需重复此步骤
+      🚀 立即开始使用：
+      在Finder中打开 Applications/QNotes.app 即可开始！
 
       📖 使用教程：https://xiangyangqiaomu.feishu.cn/wiki/CHp0woTaLi166Cksb1BcbzQhns8
+      🆘 技术支持：https://github.com/joeseesun/qnotes-app/issues
     EOS
   end
 
